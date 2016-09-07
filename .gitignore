@@ -1,0 +1,64 @@
+.DS_Store
+*.swp
+*~.nib
+
+build/
+
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+*.xcodeproj/xcuserdata
+*.xcodeproj/project.xcworkspace/xcuserdata
+
+diffs/
+
+Pods/
+BuildArchived/
+bin/UNUSED/
+bin/backgrounds_info/
+
+*.xcworkspace/
+
+test-reports/junit-report.xml
+
+# fastlane
+*.mobileprovision
+fastlane/report.xml
+fastlane/screenshots
+*.cer
+
+# https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
+
+*.iml
+
+## Directory-based project format:
+.idea/
+# if you remove the above rule, at least ignore the following:
+
+# User-specific stuff:
+# .idea/workspace.xml
+# .idea/tasks.xml
+# .idea/dictionaries
+
+# Sensitive or high-churn files:
+# .idea/dataSources.ids
+# .idea/dataSources.xml
+# .idea/sqlDataSources.xml
+# .idea/dynamic.xml
+# .idea/uiDesigner.xml
+
+# Gradle:
+# .idea/gradle.xml
+# .idea/libraries
+
+# Mongo Explorer plugin:
+# .idea/mongoSettings.xml
+
+fastlane/test_output/report.html
+
+fastlane/test_output/report.junit
