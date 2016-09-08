@@ -9,14 +9,14 @@
 
 #import "ViewController.h"
 
-typedef struct RGBAPixel
+typedef struct ARGBPixel
 {
     Byte alpha;
     Byte red;
     Byte green;
     Byte blue;
     
-} RGBAPixel;
+} ARGBPixel;
 
 @interface ViewController ()
 
@@ -36,14 +36,14 @@ typedef struct RGBAPixel
     
     NSMutableArray *pixelsArray = [NSMutableArray array];
     
-    const RGBAPixel* pixels = (const RGBAPixel*)CGBitmapContextGetData(context);
+    const ARGBPixel* pixels = (const ARGBPixel*)CGBitmapContextGetData(context);
     NSInteger height = image.size.height;
     NSInteger width  = image.size.width;
     for (NSUInteger y = 0; y < height; y++) {
         for (NSUInteger x = 0; x < width; x++) {
             const NSUInteger index = x + y * width;
-            RGBAPixel pixel = pixels[index];
-            NSValue *v = [NSValue value:&pixel withObjCType:@encode(RGBAPixel)];
+            ARGBPixel pixel = pixels[index];
+            NSValue *v = [NSValue value:&pixel withObjCType:@encode(ARGBPixel)];
 //            Byte a = pixel.alpha;
 //            Byte r = pixel.red;
 //            Byte g = pixel.green;
@@ -58,7 +58,7 @@ typedef struct RGBAPixel
     UIImage *outImage2 = [self createImageFromARGBArray:pixelsArray];
 }
 
-- (UIImage *)createImageFromARGBPixels:(RGBAPixel *)pixels
+- (UIImage *)createImageFromARGBPixels:(ARGBPixel *)pixels
 {
     UIImage *image = [UIImage imageNamed:@"test.png"];
     CGSize size = image.size;
@@ -85,11 +85,11 @@ typedef struct RGBAPixel
     CGSize size = image.size;
     CGBitmapInfo bitmapInfo = (CGBitmapInfo)kCGImageAlphaPremultipliedFirst;
     
-    RGBAPixel *pixels = malloc(size.height * size.width * sizeof(RGBAPixel));
-    RGBAPixel *pixel = pixels;
+    ARGBPixel *pixels = malloc(size.height * size.width * sizeof(ARGBPixel));
+    ARGBPixel *pixel = pixels;
     for (int i = 0; i < array.count; i++) {
         NSValue *value = array[i];
-        RGBAPixel _pixel;
+        ARGBPixel _pixel;
         [value getValue:&_pixel];
         *pixel++ = _pixel;
     }
